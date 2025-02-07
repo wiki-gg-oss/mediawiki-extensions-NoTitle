@@ -1,6 +1,6 @@
 {
 	"name": "NoTitle",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"author": [
 		"Carlo Cabanilla",
 		"Tony Boyles",
@@ -12,7 +12,7 @@
 	"license-name": "GPL-3.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"MessagesDirs": {
 		"NoTitle": [
@@ -22,12 +22,17 @@
 	"ExtensionMessagesFiles": {
 		"NoTitleMagic": "NoTitle.i18n.magic.php"
 	},
-	"AutoloadClasses": {
-		"NoTitle": "includes/NoTitle.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\NoTitle\\": "includes/"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\NoTitle\\Hooks"
+		}
 	},
 	"Hooks": {
-		"GetDoubleUnderscoreIDs": "NoTitle::onGetDoubleUnderscoreIDs",
-		"OutputPageParserOutput": "NoTitle::onOutputPageParserOutput"
+		"GetDoubleUnderscoreIDs": "main",
+		"OutputPageParserOutput": "main"
 	},
 	"ResourceModules": {
 		"ext.NoTitle": {
